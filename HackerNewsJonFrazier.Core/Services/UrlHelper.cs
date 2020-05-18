@@ -15,7 +15,7 @@ namespace HackerNewsJonFrazier.Core.Services
             _logger = logger;
         }
 
-        public string Url
+        public string SummariesUrl
         {
             get {
                 if (string.IsNullOrWhiteSpace(_url))
@@ -23,33 +23,32 @@ namespace HackerNewsJonFrazier.Core.Services
                     _url = getUrlFromConfiguration();
                 }
 
-                return _url;
+                return $"{_url}newstories.json";
             }
+        }
+
+        public string GetDetailsUrl(long storyId)
+        {
+            if (string.IsNullOrWhiteSpace(_url))
+            {
+                _url = getUrlFromConfiguration();
+            }
+
+            return $"{_url}item/{storyId}.json";
         }
 
         private string getUrlFromConfiguration()
         {
-            var urlSection = _configuration.GetSection("Urls");
+            var url = _configuration["HackerNewsBaseApi"];
+            var version = _configuration["HackerNewsApiVersion"];
 
             // TODO: unit test
-            if (urlSection == null)
+            if (string.IsNullOrWhiteSpace(url))
             {
-                var message = "Urls config section does not exist";
+                var message = "Url does not exist in configuration";
                 _logger.LogError(message);
                 throw new NullReferenceException(message);
             }
-
-            var url = urlSection.GetValue<string>("HackerNewsBaseApi");
-
-            // TODO: unit test
-            if (url == null)
-            {
-                var message = "HackerNewsBaseApi does not exist in Urls config section";
-                _logger.LogError(message);
-                throw new NullReferenceException(message);
-            }
-
-            var version = _configuration.GetValue<string>("HackerNewsApiVersion");
 
             // TODO: unit test
             if (string.IsNullOrWhiteSpace(version))
@@ -59,7 +58,11 @@ namespace HackerNewsJonFrazier.Core.Services
                 throw new NullReferenceException(message);
             }
 
-            return $"{url}/{version}";
+            var urlWithVersion = $"{url}/{version}/";
+
+            _logger.LogInfo($"Retrieved url {urlWithVersion} from configuration");
+
+            return urlWithVersion;
         }
     }
 }

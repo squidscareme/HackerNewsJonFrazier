@@ -1,8 +1,9 @@
 ﻿using System;
 namespace HackerNewsJonFrazier.Core.Services
 {
-    internal interface IUrlHelper
+    public interface IUrlHelper
     {
-        string Url { get; }
+        string SummariesUrl { get; }
+        string GetDetailsUrl(long storyId);
     }
 }

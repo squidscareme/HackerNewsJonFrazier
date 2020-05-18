@@ -11,7 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-using HackerNewsJonFrazier.Services;
+using HackerNewsJonFrazier.Core;
+using System.Text.Json;
 
 namespace HackerNewsJonFrazier
 {
@@ -27,6 +28,12 @@ namespace HackerNewsJonFrazier
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // keeps the casing to that of the model when serializing to json (default is converting to camelCase)
+            services.AddMvc()
+                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
+
+            services.AddHttpClient();
+
             services.AddControllers();
 
             // register the services in the core library for the controllers to use.
@@ -46,7 +53,7 @@ namespace HackerNewsJonFrazier
             app.UseRouting();
 
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

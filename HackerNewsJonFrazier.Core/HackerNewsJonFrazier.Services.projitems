@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{739DEC2B-473E-460D-AB89-938ED8B34792}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>HackerNewsJonFrazier.Core</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Models\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Enums\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Story.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\StoryTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\StorySummary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Registration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\BusinessLogic\StoryService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\BusinessLogic\IStoryService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IUrlHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\UrlHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ILogger.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerNewsJonFrazier", "HackerNewsJonFrazier\HackerNewsJonFrazier.csproj", "{0B4859D0-DA80-49E7-988E-2F921D08184D}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HackerNewsJonFrazier.Core", "HackerNewsJonFrazier.Core\HackerNewsJonFrazier.Core.shproj", "{739DEC2B-473E-460D-AB89-938ED8B34792}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerNewsJonFrazier.Core.Tests", "HackerNewsJonFrazier.Core.Tests\HackerNewsJonFrazier.Core.Tests.csproj", "{E0735393-05DF-4732-8CB9-73FBE44A6762}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B4859D0-DA80-49E7-988E-2F921D08184D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B4859D0-DA80-49E7-988E-2F921D08184D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B4859D0-DA80-49E7-988E-2F921D08184D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B4859D0-DA80-49E7-988E-2F921D08184D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0735393-05DF-4732-8CB9-73FBE44A6762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0735393-05DF-4732-8CB9-73FBE44A6762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0735393-05DF-4732-8CB9-73FBE44A6762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0735393-05DF-4732-8CB9-73FBE44A6762}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
